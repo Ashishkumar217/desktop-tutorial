@@ -1,0 +1,36 @@
+print("1 - Add")
+print("2 - Subtract")
+print("3 - Multiply")
+print("4 - Divide")
+
+result = None
+operation = None
+
+option = int(input("Choose an operation: "))
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+if option in [1, 2, 3, 4]:
+  
+
+    if option == 1:
+        result = num1 + num2
+        operation = "addition"
+    elif option == 2:
+        result = num1 - num2
+        operation = "subtraction"
+    elif option == 3:
+        result = num1 * num2
+        operation = "multiplication"
+    elif option == 4:
+        if num2 != 0:
+            result = num1 / num2
+            operation = "division"
+        else:
+            print("Error: number is not divisible by zero.")
+else:
+
+  if result is not None:
+    print(f"The {operation} of {num1} and {num2} is {result}")
+  else :
+     print("invaild")
