@@ -1,36 +1,28 @@
-print("1 - Add")
-print("2 - Subtract")
-print("3 - Multiply")
-print("4 - Divide")
+-- sql is a domain specific language 
+-- It has 4 main commands DDL,DML,DCL,TCL
+-- 1. Data defination language (ddl) include (create,alter,drop,truncate)
+create database sql1;
+use sql1;
+create table student(id int,name varchar(20),course varchar(20),section int); -- a table is created.
+desc student;
+alter table student add phone int; -- a column(phone) is added.
+drop table student; -- used to drop a specific table.
+truncate student;-- used to reomve all the rows from the table.
 
-result = None
-operation = None
+-- 2. Data manipulation language (dml) include (select, insert, update, delete)
+select * from student; -- used to display all the rows values in the table.alter
+insert into student (id,name,course,section)values(01,"ashish","BSC",2),(02,"vansh","BCA",1),(03,"harsh","BBA",3); -- used to insrt values in the table
+SET SQL_SAFE_UPDATES = 0;-- used to switch to update mode in sql workbench.
+update student set section = 2 where name = "vansh"; -- used to update values or replace them.
+delete from student where section=3;-- delete remove the specific row.
 
-option = int(input("Choose an operation: "))
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
+-- 3. Data Control language (dcl) include (grant, revoke)
+grant insert on student to user1;
+revoke insert on student from user1;
 
-if option in [1, 2, 3, 4]:
-  
+-- 4. transaction control language (tcl) include (commit,roll back,save).
+commit;-- save changes permanantly .
+rollback;-- undo changes before commit.
+savepoint p1;-- set a point within a transaction to roll back.
 
-    if option == 1:
-        result = num1 + num2
-        operation = "addition"
-    elif option == 2:
-        result = num1 - num2
-        operation = "subtraction"
-    elif option == 3:
-        result = num1 * num2
-        operation = "multiplication"
-    elif option == 4:
-        if num2 != 0:
-            result = num1 / num2
-            operation = "division"
-        else:
-            print("Error: number is not divisible by zero.")
-else:
 
-  if result is not None:
-    print(f"The {operation} of {num1} and {num2} is {result}")
-  else :
-     print("invaild")
